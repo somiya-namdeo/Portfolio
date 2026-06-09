@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import PlaceholderPage from './pages/PlaceholderPage'
+import Resume from './pages/Resume'
 import LoadingScreen from './components/LoadingScreen'
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
                 <Route path="/certifications" element={<PlaceholderPage title="Certifications" />} />
                 <Route path="/github" element={<PlaceholderPage title="GitHub" />} />
                 <Route path="/coding-profiles" element={<PlaceholderPage title="Coding Profiles" />} />
-                <Route path="/resume" element={<PlaceholderPage title="Resume" />} />
+                <Route path="/resume" element={<Resume />} />
                 <Route path="/contact" element={<PlaceholderPage title="Contact" />} />
               </Routes>
             </AnimatePresence>

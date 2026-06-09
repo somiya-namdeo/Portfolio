@@ -67,3 +67,53 @@
     padding: 1.5rem;
   }
 }
+
+/* Back Button */
+.back-button-container {
+  position: absolute;
+  top: 90px;
+  left: 3rem;
+  z-index: 90;
+}
+
+.return-hub-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  background: var(--node-bg);
+  border: 1px solid var(--node-border);
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-backdrop);
+  transition: all 0.3s ease;
+}
+
+.return-hub-btn:hover {
+  border-color: var(--accent-violet);
+  box-shadow: 0 0 15px var(--accent-glow-violet);
+  transform: translateX(-5px);
+  color: var(--accent-blue);
+}
+
+.light .return-hub-btn {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.light .return-hub-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--accent-blue);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15);
+}
+
+@media (max-width: 768px) {
+  .back-button-container {
+    top: 80px;
+    left: 1.5rem;
+  }
+}

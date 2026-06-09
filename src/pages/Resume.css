@@ -1,0 +1,461 @@
+.resume-page {
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  padding: 1rem 2rem 4rem; /* Move heading upward */
+  position: relative;
+  overflow: hidden;
+}
+
+/* AI Ambient Background */
+.ambient-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+.bg-neural-paths {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+}
+
+.bg-path {
+  fill: none;
+  stroke: var(--accent-blue);
+  stroke-width: 0.5;
+  stroke-dasharray: 5 10;
+}
+
+.bg-path.p-slow { animation: flowDash 30s linear infinite; }
+.bg-path.p-med { animation: flowDash 20s linear infinite reverse; }
+.bg-path.p-fast { animation: flowDash 15s linear infinite; }
+
+@keyframes flowDash {
+  to { stroke-dashoffset: -100; }
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 10px var(--accent-blue);
+  opacity: 0.3;
+  animation: floatParticle 15s infinite linear;
+}
+
+.particle.p1 { top: 20%; left: 15%; animation-duration: 20s; }
+.particle.p2 { top: 60%; left: 85%; background: var(--accent-violet); animation-direction: reverse; animation-duration: 25s; }
+.particle.p3 { top: 80%; left: 25%; animation-duration: 18s; }
+.particle.p4 { top: 10%; left: 75%; background: var(--accent-violet); animation-direction: reverse; animation-duration: 22s; }
+
+@keyframes floatParticle {
+  0% { transform: translate(0, 0); opacity: 0.1; }
+  25% { opacity: 0.4; }
+  50% { transform: translate(30px, -40px); opacity: 0.1; }
+  75% { opacity: 0.4; }
+  100% { transform: translate(0, 0); opacity: 0.1; }
+}
+
+.resume-vault-container {
+  width: 100%;
+  max-width: 800px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.vault-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.vault-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, var(--text-primary), #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vault-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.vault-centerpiece {
+  width: 100%;
+}
+
+.premium-resume-card {
+  background: var(--node-bg);
+  border: 1px solid var(--node-border);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-backdrop);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.premium-resume-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(59, 130, 246, 0.8);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2), 0 0 30px rgba(59, 130, 246, 0.5);
+}
+
+.premium-resume-card:hover .card-icon-wrapper {
+  transform: rotate(-10deg) scale(1.05);
+}
+
+.float-anim {
+  animation: floatCard 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, transparent, var(--accent-blue), transparent);
+  opacity: 0.5;
+  box-shadow: 0 0 10px var(--accent-blue);
+  animation: scanMove 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@keyframes scanMove {
+  0% { top: -10%; opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { top: 110%; opacity: 0; }
+}
+
+.card-glow-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.card-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-blue);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pulse-icon {
+  animation: pulseIconGlow 3s infinite alternate;
+}
+
+@keyframes pulseIconGlow {
+  0% { box-shadow: 0 0 10px rgba(59, 130, 246, 0.2); border-color: rgba(59, 130, 246, 0.3); }
+  100% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); border-color: rgba(59, 130, 246, 0.8); }
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.file-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.card-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+.meta-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--node-border);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.vault-actions {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.vault-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.vault-btn.primary {
+  background: var(--accent-blue);
+  color: #fff;
+  border: 1px solid var(--accent-blue);
+  box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+.vault-btn.primary:hover {
+  background: var(--accent-violet);
+  border-color: var(--accent-violet);
+  box-shadow: 0 4px 20px var(--accent-glow-violet);
+  transform: translateY(-2px);
+}
+
+.vault-btn.secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--node-border);
+}
+
+.vault-btn.secondary:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--accent-blue);
+  transform: translateY(-2px);
+}
+
+/* Hidden PDF Preview Section */
+.pdf-preview-section {
+  width: 100%;
+  overflow: hidden;
+}
+
+.pdf-glass-container {
+  background: var(--node-bg);
+  border: 1px solid var(--node-border);
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-backdrop);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.resume-pdf {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: none;
+  background: #fff;
+}
+
+.pdf-fallback {
+  text-align: center;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.fallback-icon {
+  color: var(--accent-blue);
+  opacity: 0.5;
+}
+
+.fallback-btn {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--accent-blue);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.fallback-btn:hover {
+  background: var(--accent-violet);
+  transform: translateY(-2px);
+}
+
+/* Footer CTA */
+.vault-footer {
+  margin-top: 3rem;
+  text-align: center;
+  padding-top: 3rem;
+  border-top: 1px solid var(--node-border);
+  width: 100%;
+}
+
+.footer-cta-text {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-btn.primary {
+  background: var(--text-primary);
+  color: var(--bg-color);
+  border: none;
+}
+
+.cta-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+.light .cta-btn.primary:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--node-border);
+}
+
+.cta-btn.secondary:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  transform: translateY(-2px);
+}
+
+/* Light Mode Specific Enhancements for Resume Vault */
+.light .premium-resume-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.light .premium-resume-card:hover {
+  border-color: rgba(37, 99, 235, 0.6);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.light .vault-btn.secondary {
+  border-color: rgba(37, 99, 235, 0.3);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.light .vault-btn.secondary:hover {
+  background: rgba(37, 99, 235, 0.05);
+  border-color: var(--accent-blue);
+}
+
+.light .bg-grid {
+  background-image: linear-gradient(to right, rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .resume-page {
+    padding: 2rem 1rem;
+  }
+
+  .vault-title {
+    font-size: 2.5rem;
+  }
+
+  .card-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .vault-actions {
+    flex-direction: column;
+  }
+
+  .footer-buttons {
+    flex-direction: column;
+  }
+}
