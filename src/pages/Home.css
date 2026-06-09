@@ -1,0 +1,170 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 0 2rem 4rem;
+  position: relative;
+}
+
+.hero-section {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  z-index: 10;
+}
+
+.hero-quote {
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 50px; /* Exact 50px gap requested */
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.section-label-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 70px; /* Exact 70px gap requested */
+}
+
+.section-label-line {
+  height: 1px;
+  width: 50px;
+  background: var(--node-border);
+}
+
+.section-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--text-secondary);
+}
+
+.network-section {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 750px; /* Increased to actually contain the full network radius */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 1rem 0; /* Reduced bottom margin */
+  z-index: 5;
+}
+
+.identity-section {
+  text-align: center;
+  z-index: 10;
+  max-width: 800px;
+  margin-top: 1rem; /* Significantly reduced to bring text closer to network */
+}
+
+.identity-name {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 0.2rem; /* Reduced space below name */
+  background: linear-gradient(to right, var(--text-primary), #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.identity-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--accent-violet);
+  margin-bottom: 0.5rem; /* Reduced space below title */
+}
+
+.identity-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem; /* Reduced space below subtitle */
+}
+
+.identity-desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* Ambient Particles */
+.ambient-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 8px var(--accent-blue);
+  opacity: 0.3;
+  animation: float 20s infinite linear;
+}
+
+.particle:nth-child(even) {
+  background: var(--accent-violet);
+  box-shadow: 0 0 10px var(--accent-violet);
+  animation-duration: 25s;
+  animation-direction: reverse;
+}
+
+/* Simulate multiple particles using multiple box-shadows on two elements */
+.p1 {
+  top: 10%; left: 10%;
+  box-shadow: 
+    0 0 8px var(--accent-blue),
+    20vw 15vh 0 var(--accent-blue),
+    40vw 40vh 0 var(--accent-violet),
+    60vw 10vh 0 var(--accent-blue),
+    80vw 50vh 0 var(--accent-violet);
+}
+
+.p2 {
+  top: 50%; left: 20%;
+  box-shadow: 
+    0 0 10px var(--accent-violet),
+    10vw -30vh 0 var(--accent-blue),
+    30vw -10vh 0 var(--accent-violet),
+    50vw 30vh 0 var(--accent-blue),
+    70vw -20vh 0 var(--accent-violet);
+}
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(-30px) translateX(20px); }
+  66% { transform: translateY(20px) translateX(-20px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+@media (max-width: 768px) {
+  .hero-quote {
+    font-size: 1.6rem;
+  }
+  
+  .identity-name {
+    font-size: 2rem; /* Smaller on mobile so SOMIYA NAMDEO fits */
+  }
+  
+  .network-section {
+    min-height: 600px;
+    margin: 1rem 0;
+  }
+  
+  .home-page {
+    padding: 0 1rem 2rem;
+  }
+}

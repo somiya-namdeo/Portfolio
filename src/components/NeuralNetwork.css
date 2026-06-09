@@ -1,0 +1,282 @@
+.neural-network-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.neural-connections {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 1000px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bg-ring {
+  fill: none;
+  stroke: var(--line-color);
+  stroke-width: 1;
+  opacity: 0.3;
+}
+
+.bg-ring.dashed {
+  stroke-dasharray: 8 16;
+  animation: rotateRing 80s linear infinite;
+  transform-origin: center;
+}
+
+.bg-ring.dotted {
+  stroke-dasharray: 2 12;
+  animation: rotateRing 120s linear reverse infinite;
+  transform-origin: center;
+}
+
+/* Radar Rings (Divs) */
+.profile-radar-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: 260px;
+  border: 1.5px solid rgba(59, 130, 246, 0.35);
+  border-radius: 9999px;
+  transform: translate(-50%, -50%) scale(1);
+  animation: radarPulse 4s linear infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.profile-radar-ring.r1 { animation-delay: 0s; }
+.profile-radar-ring.r2 { animation-delay: 1.3s; }
+.profile-radar-ring.r3 { animation-delay: 2.6s; }
+
+@keyframes radarPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3.2);
+    opacity: 0;
+  }
+}
+
+.neural-path {
+  stroke-dasharray: 4 8;
+  animation: dashFlow 30s linear infinite;
+  transition: stroke-width 0.3s ease, stroke 0.3s ease;
+  filter: drop-shadow(0 0 2px transparent);
+}
+
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+.neural-path.active {
+  stroke: var(--line-active);
+  filter: drop-shadow(0 0 8px var(--accent-blue));
+}
+
+.energy-pulse {
+  opacity: 0.3;
+  filter: drop-shadow(0 0 5px var(--accent-blue));
+  transition: opacity 0.3s ease;
+}
+
+.energy-pulse.active {
+  opacity: 1;
+  filter: drop-shadow(0 0 10px var(--accent-blue));
+}
+
+.center-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.profile-wrapper {
+  width: 260px; /* Matching radar ring base width */
+  height: 260px; /* Matching radar ring base height */
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-color);
+  padding: 8px;
+  box-shadow: 0 0 40px var(--accent-glow);
+  animation: pulseGlow 4s infinite;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
+  border: 2px solid var(--accent-blue);
+}
+
+.profile-glow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow-violet) 0%, transparent 70%);
+  z-index: 1;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.orbital-node-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  animation: floatNode 6s infinite ease-in-out alternate;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes floatNode {
+  0% { transform: translate(-50%, -50%) translateY(0); }
+  100% { transform: translate(-50%, -50%) translateY(-10px); }
+}
+
+.orbital-node-wrapper.hovered {
+  z-index: 20;
+}
+
+.node-card {
+  background: var(--node-bg);
+  border: 1px solid var(--node-border);
+  border-radius: 16px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.orbital-node-wrapper:hover .node-card {
+  transform: scale(1.1);
+  border-color: var(--accent-blue);
+  box-shadow: 0 10px 25px var(--accent-glow), 0 0 0 1px var(--accent-blue) inset;
+}
+
+.node-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--accent-blue);
+  transition: all 0.3s ease;
+}
+
+.orbital-node-wrapper:hover .node-icon-wrapper {
+  background: var(--accent-blue);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Highlighted Node (Recruiter Snapshot) */
+.highlight-node .node-card {
+  transform: scale(1.05);
+  border-color: rgba(59, 130, 246, 0.8);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 5px rgba(59, 130, 246, 0.2);
+  animation: pulseGlowNode 3s infinite alternate ease-in-out;
+}
+
+.highlight-node .node-icon-wrapper {
+  background: rgba(59, 130, 246, 0.2);
+  color: var(--accent-blue);
+  filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
+}
+
+@keyframes pulseGlowNode {
+  0% { box-shadow: 0 0 15px rgba(59, 130, 246, 0.2), inset 0 0 5px rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.5); }
+  100% { box-shadow: 0 0 25px rgba(59, 130, 246, 0.5), inset 0 0 10px rgba(59, 130, 246, 0.3); border-color: rgba(59, 130, 246, 1); }
+}
+
+.node-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+@keyframes rotateRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 1024px) {
+  .profile-wrapper {
+    width: 170px;
+    height: 170px;
+  }
+  .neural-network-container {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-wrapper {
+    width: 140px;
+    height: 140px;
+  }
+  .neural-network-container {
+    min-height: 400px;
+  }
+  .node-card {
+    padding: 10px 14px;
+    min-width: 90px;
+  }
+  .node-icon-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+  .node-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .node-label {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-wrapper {
+    width: 110px;
+    height: 110px;
+  }
+  .neural-network-container {
+    min-height: 350px;
+  }
+  .node-card {
+    padding: 8px 12px;
+  }
+  .node-label {
+    font-size: 0.75rem;
+  }
+}

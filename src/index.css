@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Dark Theme Colors (Primary) */
+  --bg-color: #050b14;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --accent-blue: #3b82f6;
+  --accent-violet: #8b5cf6;
+  --accent-glow: rgba(59, 130, 246, 0.4);
+  --accent-glow-violet: rgba(139, 92, 246, 0.4);
+  --node-bg: rgba(10, 15, 30, 0.7);
+  --node-border: rgba(59, 130, 246, 0.2);
+  --line-color: rgba(59, 130, 246, 0.4);
+  --line-active: #60a5fa;
+  --particle-color: rgba(139, 92, 246, 0.15);
+  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --glass-backdrop: blur(10px);
+}
+
+.light {
+  /* Light Theme Colors */
+  --bg-color: #F8FAFC;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-blue: #2563eb;
+  --accent-violet: #7c3aed;
+  --accent-glow: rgba(37, 99, 235, 0.25);
+  --accent-glow-violet: rgba(124, 58, 237, 0.25);
+  --node-bg: rgba(255, 255, 255, 0.95);
+  --node-border: rgba(37, 99, 235, 0.2);
+  --line-color: rgba(37, 99, 235, 0.3);
+  --line-active: #2563eb;
+  --particle-color: rgba(124, 58, 237, 0.1);
+  --glass-shadow: 0 4px 15px rgba(37, 99, 235, 0.05);
+  --glass-backdrop: blur(10px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 15px var(--accent-glow), inset 0 0 10px var(--accent-glow-violet); }
+  50% { box-shadow: 0 0 35px var(--accent-glow), inset 0 0 20px var(--accent-glow-violet); }
+  100% { box-shadow: 0 0 15px var(--accent-glow), inset 0 0 10px var(--accent-glow-violet); }
+}
+
+@keyframes breathe {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.neural-line {
+  stroke-dasharray: 10 10;
+  animation: dash 30s linear infinite;
+}
+
+/* Hide scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--node-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue);
+}
