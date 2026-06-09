@@ -22,7 +22,7 @@ const nodesData = [
   { id: 'projects', label: 'Projects', icon: FolderGit2, path: '/projects', color: '#3b82f6' },
   { id: 'experience', label: 'Experience', icon: Briefcase, path: '/experience', color: '#60a5fa' },
   { id: 'certifications', label: 'Certifications', icon: Award, path: '/certifications', color: '#8b5cf6' },
-  { id: 'github', label: 'GitHub', icon: FaGithub, path: '/github', color: '#3b82f6' },
+  { id: 'github', label: 'GitHub ↗', icon: FaGithub, path: 'https://github.com/somiya-namdeo', isExternal: true, color: '#3b82f6' },
   { id: 'coding', label: 'Coding Profiles', icon: Terminal, path: '/coding-profiles', color: '#60a5fa' },
   { id: 'resume', label: 'Resume', icon: FileText, path: '/resume', color: '#8b5cf6' },
   { id: 'contact', label: 'Contact', icon: Mail, path: '/contact', color: '#3b82f6' },
@@ -144,7 +144,13 @@ const NeuralNetwork = () => {
             }}
             onMouseEnter={() => setHoveredNode(node.id)}
             onMouseLeave={() => setHoveredNode(null)}
-            onClick={() => navigate(node.path)}
+            onClick={() => {
+              if (node.isExternal) {
+                window.open(node.path, '_blank', 'noopener,noreferrer');
+              } else {
+                navigate(node.path);
+              }
+            }}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0 }}

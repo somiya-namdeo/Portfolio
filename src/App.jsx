@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import PlaceholderPage from './pages/PlaceholderPage'
 import Resume from './pages/Resume'
@@ -33,6 +34,7 @@ function App() {
           <LoadingScreen key="loading" onComplete={() => setLoading(false)} />
         ) : (
           <div className="app-container" key="app">
+            <ScrollToTop />
             <Navbar theme={theme} toggleTheme={toggleTheme} />
             <AnimatePresence mode="wait">
               <Routes location={location} key={location.pathname}>
