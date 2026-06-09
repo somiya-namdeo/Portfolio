@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import PlaceholderPage from './pages/PlaceholderPage'
 import Resume from './pages/Resume'
+import Contact from './pages/Contact'
 import LoadingScreen from './components/LoadingScreen'
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
                 <Route path="/github" element={<PlaceholderPage title="GitHub" />} />
                 <Route path="/coding-profiles" element={<PlaceholderPage title="Coding Profiles" />} />
                 <Route path="/resume" element={<Resume />} />
-                <Route path="/contact" element={<PlaceholderPage title="Contact" />} />
+                <Route path="/contact" element={<Contact />} />
               </Routes>
             </AnimatePresence>
           </div>
