@@ -4,28 +4,27 @@ import {
   Eye, 
   GraduationCap, 
   Brain, 
-  Award, 
+  FolderGit2, 
+  Briefcase,
   Terminal, 
   FileText, 
-  Mail,
-  FolderGit2,
-  Briefcase
+  Mail
 } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import './NeuralNetwork.css';
 
+// Sorted strictly clockwise starting from Top (index 0)
 const nodesData = [
-  { id: 'recruiter', label: 'Recruiter Snapshot', icon: Eye, path: '/recruiter-snapshot', color: '#3b82f6' },
-  { id: 'education', label: 'Education', icon: GraduationCap, path: '/education', color: '#60a5fa' },
-  { id: 'skills', label: 'Skills', icon: Brain, path: '/skills', color: '#8b5cf6' },
-  { id: 'projects', label: 'Projects', icon: FolderGit2, path: '/projects', color: '#3b82f6' },
-  { id: 'experience', label: 'Experience', icon: Briefcase, path: '/experience', color: '#60a5fa' },
-  { id: 'certifications', label: 'Certifications', icon: Award, path: '/certifications', color: '#8b5cf6' },
-  { id: 'github', label: 'GitHub ↗', icon: FaGithub, path: 'https://github.com/somiya-namdeo', isExternal: true, color: '#3b82f6' },
-  { id: 'coding', label: 'Coding Profiles', icon: Terminal, path: '/coding-profiles', color: '#60a5fa' },
-  { id: 'resume', label: 'Resume', icon: FileText, path: '/resume', color: '#8b5cf6' },
-  { id: 'contact', label: 'Contact', icon: Mail, path: '/contact', color: '#3b82f6' },
+  { id: 'recruiter', label: 'Recruiter Snapshot', icon: Eye, path: '/recruiter-snapshot', color: '#3b82f6' }, // Top
+  { id: 'academic', label: 'Academic Profile', icon: GraduationCap, path: '/academic-profile', color: '#60a5fa' }, // Upper Right
+  { id: 'skills', label: 'Skill Matrix', icon: Brain, path: '/skill-matrix', color: '#8b5cf6' }, // Middle Right
+  { id: 'projects', label: 'AI Project Lab', icon: FolderGit2, path: '/projects-universe', color: '#3b82f6' }, // Lower Right
+  { id: 'experience', label: 'Experience Timeline', icon: Briefcase, path: '/experience-timeline', color: '#60a5fa' }, // Bottom Right
+  { id: 'github', label: 'GitHub Hub ↗', icon: FaGithub, path: 'https://github.com/somiya-namdeo', isExternal: true, color: '#8b5cf6' }, // Bottom Left
+  { id: 'coding', label: 'Coding Arena', icon: Terminal, path: '/coding-arena', color: '#3b82f6' }, // Lower Left
+  { id: 'resume', label: 'Resume Vault', icon: FileText, path: '/resume-vault', color: '#60a5fa' }, // Middle Left
+  { id: 'contact', label: 'Contact Console', icon: Mail, path: '/contact-console', color: '#8b5cf6' }, // Upper Left
 ];
 
 const NeuralNetwork = () => {
@@ -43,7 +42,7 @@ const NeuralNetwork = () => {
       } else if (window.innerWidth < 1024) {
         setRadius(280);
       } else {
-        setRadius(320); // Scaled down to prevent overlap
+        setRadius(340); // Slightly expanded to fit the 9 nodes perfectly
       }
     };
 
@@ -54,10 +53,9 @@ const NeuralNetwork = () => {
 
   const totalNodes = nodesData.length;
   
-  // Create circular positions
-  // We want to start from top (Recruiter Snapshot) and go clockwise.
-  // Top in standard math is -90 degrees.
+  // Create perfectly balanced 9-node circular positions (40 degrees apart)
   const calculatePosition = (index) => {
+    // Start at Top (-90 degrees or -PI/2) and map clockwise
     const angle = (index / totalNodes) * 2 * Math.PI - Math.PI / 2;
     const x = Math.cos(angle) * radius;
     const y = Math.sin(angle) * radius;
@@ -75,7 +73,7 @@ const NeuralNetwork = () => {
           </radialGradient>
         </defs>
         
-        {/* Exactly 2 Animated Orbit Rings */}
+        {/* Animated Orbit Rings */}
         <circle cx="0" cy="0" r={radius * 0.65} className="bg-ring dashed" />
         <circle cx="0" cy="0" r={radius} className="bg-ring dotted" />
 
@@ -84,8 +82,7 @@ const NeuralNetwork = () => {
           const { x, y } = calculatePosition(index);
           const isHovered = hoveredNode === node.id;
           
-          // Elegant S-curve bezier
-          // Pushes out radially, then swoops to the node
+          // Elegant S-curve bezier pushing radially outwards then swooping
           const distance = Math.sqrt(x*x + y*y);
           const cp1x = (x / distance) * (distance * 0.4);
           const cp1y = (y / distance) * (distance * 0.4);
@@ -128,7 +125,7 @@ const NeuralNetwork = () => {
         </motion.div>
       </div>
 
-      {/* Orbital Nodes */}
+      {/* Orbital Nodes (9 nodes, perfectly equidistant) */}
       {nodesData.map((node, index) => {
         const { x, y } = calculatePosition(index);
         const Icon = node.icon;
@@ -136,7 +133,7 @@ const NeuralNetwork = () => {
         return (
           <div
             key={node.id}
-            className={`orbital-node-wrapper ${hoveredNode === node.id ? 'hovered' : ''} ${node.id === 'recruiter' ? 'highlight-node' : ''}`}
+            className={`orbital-node-wrapper ${hoveredNode === node.id ? 'hovered' : ''}`}
             style={{ 
               top: `calc(50% + ${y}px)`,
               left: `calc(50% + ${x}px)`,

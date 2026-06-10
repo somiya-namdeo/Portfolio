@@ -31,7 +31,7 @@ const Navbar = ({ theme, toggleTheme }) => {
         </div>
       </motion.nav>
 
-      {!isHome && (
+      {(!isHome && !location.pathname.includes('projects')) && (
         <motion.div 
           className="back-button-container"
           initial={{ opacity: 0, x: -20 }}

@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import PlaceholderPage from './pages/PlaceholderPage'
+import Projects from './pages/Projects'
 import Resume from './pages/Resume'
 import Contact from './pages/Contact'
+import AcademicProfile from './pages/AcademicProfile'
 import LoadingScreen from './components/LoadingScreen'
 
 function App() {
@@ -39,16 +41,28 @@ function App() {
             <AnimatePresence mode="wait">
               <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<Home theme={theme} />} />
+                
+                {/* Core New Routes */}
                 <Route path="/recruiter-snapshot" element={<PlaceholderPage title="Recruiter Snapshot" />} />
-                <Route path="/education" element={<PlaceholderPage title="Education" />} />
-                <Route path="/skills" element={<PlaceholderPage title="Skills" />} />
-                <Route path="/projects" element={<PlaceholderPage title="Projects" />} />
-                <Route path="/experience" element={<PlaceholderPage title="Experience" />} />
-                <Route path="/certifications" element={<PlaceholderPage title="Certifications" />} />
-                <Route path="/github" element={<PlaceholderPage title="GitHub" />} />
-                <Route path="/coding-profiles" element={<PlaceholderPage title="Coding Profiles" />} />
-                <Route path="/resume" element={<Resume />} />
-                <Route path="/contact" element={<Contact />} />
+                <Route path="/academic-profile" element={<AcademicProfile />} />
+                <Route path="/skill-matrix" element={<PlaceholderPage title="Skill Matrix" />} />
+                <Route path="/projects-universe" element={<Projects />} />
+                <Route path="/experience-timeline" element={<PlaceholderPage title="Experience Timeline" />} />
+                <Route path="/resume-vault" element={<Resume />} />
+                <Route path="/contact-console" element={<Contact />} />
+                <Route path="/coding-arena" element={<PlaceholderPage title="Coding Arena" />} />
+                <Route path="/github-hub" element={<PlaceholderPage title="GitHub Hub" />} />
+
+                {/* Legacy Redirects */}
+                <Route path="/projects" element={<Navigate to="/projects-universe" replace />} />
+                <Route path="/resume" element={<Navigate to="/resume-vault" replace />} />
+                <Route path="/skills" element={<Navigate to="/skill-matrix" replace />} />
+                <Route path="/experience" element={<Navigate to="/experience-timeline" replace />} />
+                <Route path="/contact" element={<Navigate to="/contact-console" replace />} />
+                <Route path="/coding-profiles" element={<Navigate to="/coding-arena" replace />} />
+                <Route path="/github" element={<Navigate to="/github-hub" replace />} />
+                <Route path="/education" element={<Navigate to="/academic-profile" replace />} />
+                <Route path="/certifications" element={<Navigate to="/academic-profile" replace />} />
               </Routes>
             </AnimatePresence>
           </div>
