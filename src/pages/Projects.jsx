@@ -12,46 +12,98 @@ const projectsDb = [
     domain: 'Machine Learning',
     status: 'LIVE',
     logo: 'careerlens-ai.png',
-    overview: 'An AI-driven platform that analyzes resumes against job descriptions to provide automated ATS scoring and tailored career growth recommendations.',
-    features: ['Resume Analysis', 'Hire Prediction', 'Job Role Prediction', 'Salary Prediction', 'Skill Gap Analysis'],
-    tech: ['Python', 'Scikit-Learn', 'Pandas'],
-    repo: 'https://github.com/somiya-namdeo/CareerLens-AI', live: 'https://career-lens-ai-two.vercel.app',
+    overview: 'AI-powered career intelligence platform that analyzes resumes using OCR, NLP, and machine learning to predict job roles, estimate salaries, calculate hiring probabilities, and identify skill gaps.',
+    fullOverview: 'CareerLens AI is an AI-powered career intelligence platform that transforms resumes into actionable hiring insights. Using OCR, NLP, and machine learning, the system analyzes candidate profiles, predicts suitable job roles, estimates salary ranges, calculates hiring probabilities, and identifies skill gaps. The platform combines multiple predictive models with an interactive dashboard to help recruiters and job seekers make data-driven career decisions.',
+    features: [
+      'OCR-Based Resume Processing Pipeline',
+      'AI-Powered Resume Intelligence Dashboard',
+      'Job Role Prediction Engine',
+      'Salary Estimation & Market Analysis',
+      'Hire Probability Prediction (94.2% Accuracy)',
+      'Skill Gap Detection & Candidate Profiling',
+      'Multi-Model Machine Learning Architecture',
+      'FastAPI REST Backend',
+      'Real-Time Resume Analytics',
+      'Production Deployment on Vercel & Render'
+    ],
+    tech: ['React', 'TypeScript', 'FastAPI', 'Python', 'Scikit-Learn', 'Pandas', 'PyMuPDF'],
+    repo: 'https://github.com/somiya-namdeo/CareerLens-AI', 
+    live: 'https://career-lens-ai-two.vercel.app',
     category: 'featured'
   },
   {
     id: 'hersakhi',
     title: 'HerSakhi',
-    domain: 'Intelligent Application',
+    domain: 'AI Wellness Platform',
     status: 'LIVE',
     logo: 'hersakhi.png',
-    overview: 'A mobile application dedicated to women\'s safety and empowerment, featuring emergency SOS alerts, trusted contacts, and community support forums.',
-    features: ['Period Tracking', 'Wellness Analytics', 'AI Assistant', 'SOS Alerts'],
-    tech: ['React Native', 'Node.js', 'MongoDB'],
-    repo: 'https://github.com/somiya-namdeo/HerSakhi-Wellness-Platform', live: 'https://her-sakhi-wellness-platform.vercel.app',
+    overview: 'AI-powered women\'s wellness platform featuring cycle tracking, health analytics, personalized wellness insights, and a Gemini-powered health assistant.',
+    fullOverview: 'HerSakhi is an AI-powered women\'s wellness platform designed to help users track menstrual health, monitor wellness indicators, and access personalized health guidance through an intelligent and privacy-focused experience. The platform combines cycle tracking, health analytics, wellness scoring, and conversational AI to provide a comprehensive digital wellness ecosystem.\n\nBuilt using React, FastAPI, Supabase, and Google Gemini, HerSakhi transforms everyday health data into meaningful insights through interactive dashboards, predictive wellness analytics, and secure AI-assisted support.',
+    features: [
+      'AI-Powered Women\'s Wellness Platform',
+      'Menstrual Cycle Tracking & Analytics',
+      'Personalized Wellness Scoring System',
+      'Health Analytics Dashboard',
+      'AI Wellness Assistant using Gemini',
+      'Symptom & Mood Monitoring',
+      'Emergency Support & Safety Features',
+      'Secure JWT Authentication',
+      'FastAPI REST Backend',
+      'Production Deployment on Vercel & Render'
+    ],
+    tech: ['React', 'FastAPI', 'Python', 'Supabase', 'PostgreSQL', 'Google Gemini', 'JWT'],
+    repo: 'https://github.com/somiya-namdeo/HerSakhi-Wellness-Platform', 
+    live: 'https://her-sakhi-wellness-platform.vercel.app',
     category: 'featured'
   },
   {
     id: 'cognivue',
     title: 'Cognivue',
-    domain: 'Computer Vision',
+    domain: 'AI Productivity Intelligence',
     status: 'LIVE',
     logo: 'cognivue.png',
-    overview: 'A computer vision application that processes video feeds in real-time to detect specific objects and anomalies for security surveillance.',
-    features: ['Real-time object detection', 'Low-latency video processing', 'Automated anomaly alerts'],
-    tech: ['React', 'OpenCV', 'FastAPI'],
-    repo: 'https://github.com/somiya-namdeo/Cognivue', live: 'https://cognivue-kappa.vercel.app',
+    overview: 'Privacy-first cognitive intelligence platform that analyzes focus, fatigue, posture, and productivity patterns using local computer vision and behavioral analytics.',
+    fullOverview: 'Cognivue is a privacy-first cognitive intelligence platform that helps users understand focus, fatigue, posture, and productivity patterns through real-time computer vision and behavioral analytics. By combining local webcam-based gaze tracking, posture analysis, browser activity monitoring, and AI-powered insights, Cognivue delivers actionable recommendations to improve deep work, productivity, and cognitive well-being.\n\nDesigned with privacy at its core, all vision processing occurs locally on the user\'s device, ensuring that no raw camera feeds, screenshots, or sensitive content are transmitted to external servers.',
+    features: [
+      'Privacy-First Cognitive Intelligence Platform',
+      'Real-Time Gaze & Attention Tracking',
+      'Fatigue Detection & Blink Analysis',
+      'Posture Monitoring & Slouch Detection',
+      'Browser Activity Intelligence',
+      'Focus & Productivity Analytics Dashboard',
+      'AI-Powered Coaching Recommendations',
+      'Chrome Extension Integration',
+      'MediaPipe FaceMesh Processing',
+      'Production Deployment on Vercel & Render'
+    ],
+    tech: ['React', 'TypeScript', 'FastAPI', 'Python', 'MediaPipe', 'Supabase', 'Chrome Ext API'],
+    repo: 'https://github.com/somiya-namdeo/Cognivue', 
+    live: 'https://cognivue-kappa.vercel.app',
     category: 'featured'
   },
   {
     id: 'trinetra',
     title: 'Trinetra AI',
-    domain: 'Intelligent Application + ML Risk Prediction',
+    domain: 'AI Emergency Intelligence',
     status: 'LIVE',
     logo: 'trinetra-ai.png',
-    overview: 'An intelligent surveillance and threat-detection system utilizing multi-modal data processing for advanced security monitoring.',
-    features: ['Risk Prediction', 'Incident Intelligence', 'Alert Prioritization', 'Analytics Dashboard'],
-    tech: ['Python', 'Deep Learning', 'FastAPI'],
-    repo: 'https://github.com/somiya-namdeo/Trinetra-AI', live: 'https://trinetra-ai-eight.vercel.app',
+    overview: 'AI-powered emergency intelligence platform for incident monitoring, risk assessment, resource management, and real-time operational decision support.',
+    fullOverview: 'Trinetra AI is an AI-powered emergency intelligence platform designed to assist in incident monitoring, risk assessment, and resource management during large-scale public events and urban operations. By combining machine learning, natural language processing, and intelligent incident correlation, the platform helps authorities identify critical situations, prioritize response efforts, and improve operational awareness through a centralized command dashboard.',
+    features: [
+      'AI-Powered Incident Monitoring Platform',
+      'Intelligent Risk Assessment Engine',
+      'Real-Time Incident Management Dashboard',
+      'Emergency Resource Allocation System',
+      'Zone Intelligence & Risk Mapping',
+      'Memory AI Incident Correlation',
+      'Natural Language Incident Analysis',
+      'FastAPI REST Backend',
+      'React + TypeScript Frontend',
+      'Production Deployment on Vercel & Render'
+    ],
+    tech: ['React', 'TypeScript', 'FastAPI', 'Python', 'Supabase', 'PostgreSQL', 'Google Gemini'],
+    repo: 'https://github.com/somiya-namdeo/Trinetra-AI', 
+    live: 'https://trinetra-ai-eight.vercel.app',
     category: 'featured'
   },
 
@@ -59,13 +111,25 @@ const projectsDb = [
   {
     id: 'hindi-sentiment',
     title: 'Hindi Sentiment Analysis',
-    domain: 'NLP',
+    domain: 'Natural Language Processing',
     status: 'Academic',
     logo: 'hindi-sentiment-analysis.png',
-    overview: 'A specialized NLP model trained to accurately classify sentiment in Hindi text, accounting for regional dialects and mixed-language (Hinglish) inputs.',
-    features: ['Custom transformer fine-tuning', 'Support for Hinglish syntax', 'Real-time inference API'],
-    tech: ['NLTK', 'Transformers', 'PyTorch'],
-    repo: 'https://github.com/somiya-namdeo/SENTIMENT-ANALYSIS-', live: null,
+    overview: 'Machine learning-based NLP system for classifying Hindi text into positive, negative, and neutral sentiment categories.',
+    fullOverview: 'Hindi Sentiment Analysis is a machine learning-based NLP system that classifies Hindi text into Positive, Negative, and Neutral sentiment categories. The project explores multiple approaches including Naive Bayes, Support Vector Machines, and Hybrid Models while building a complete Hindi language sentiment analysis pipeline.\n\nThe system demonstrates text preprocessing, feature engineering, vectorization, sentiment classification, and comparative model evaluation for low-resource language NLP tasks.\n\nClasses: Positive, Negative, Neutral\n\nApplications:\n• Social Media Analysis\n• Customer Feedback Monitoring\n• Product Review Classification\n• Public Opinion Analysis',
+    features: [
+      'Hindi Text Preprocessing Pipeline',
+      'Sentiment Classification Engine',
+      'Naive Bayes Implementation',
+      'Support Vector Machine Model',
+      'Hybrid Ensemble Approach',
+      'Feature Extraction & Vectorization',
+      'Comparative Model Evaluation',
+      'Hindi Language NLP Processing',
+      'End-to-End Sentiment Analysis Workflow'
+    ],
+    tech: ['Python', 'Scikit-Learn', 'Pandas', 'NumPy', 'Matplotlib', 'NLP', 'Feature Engineering'],
+    repo: 'https://github.com/somiya-namdeo/SENTIMENT-ANALYSIS-', 
+    live: null,
     category: 'academic'
   },
   {
@@ -74,22 +138,46 @@ const projectsDb = [
     domain: 'Computer Vision',
     status: 'Academic',
     logo: 'hand-tracking-mouse.png',
-    overview: 'An interactive application that replaces a physical computer mouse with hand-gesture tracking using an ordinary webcam.',
-    features: ['Real-time hand landmark tracking', 'Click gesture recognition', 'Low-friction OS integration'],
-    tech: ['MediaPipe', 'OpenCV', 'PyAutoGUI'],
-    repo: 'https://github.com/somiya-namdeo/hand-tracking-mouse-opencv-mediapipe', live: null,
+    overview: 'Real-time computer vision system that enables cursor control, clicking, and scrolling using hand gestures and webcam-based tracking.',
+    fullOverview: 'Hand Tracking Mouse is a real-time computer vision application that enables touchless human-computer interaction using hand gestures captured through a webcam. By leveraging MediaPipe hand landmark detection and OpenCV-based video processing, the system translates natural finger movements into mouse actions such as cursor movement, clicking, and scrolling.\n\nThe project demonstrates how computer vision can replace traditional input devices, providing accessibility-focused and contactless interaction methods for modern computing environments.',
+    features: [
+      'Real-Time Hand Tracking',
+      'Cursor Control via Finger Movement',
+      'Left & Right Click Gesture Recognition',
+      'Scroll Control Using Hand Gestures',
+      'MediaPipe Hand Landmark Detection',
+      'Smooth Cursor Movement & Jitter Reduction',
+      'Contactless Human-Computer Interaction',
+      'Real-Time Performance Monitoring',
+      'Accessibility-Focused Design'
+    ],
+    tech: ['Python', 'OpenCV', 'MediaPipe', 'PyAutoGUI', 'NumPy', 'Computer Vision'],
+    repo: 'https://github.com/somiya-namdeo/hand-tracking-mouse-opencv-mediapipe', 
+    live: null,
     category: 'academic'
   },
   {
     id: 'pothole',
-    title: 'Pothole Detection',
+    title: 'Pothole Detection & Depth Analysis',
     domain: 'Computer Vision',
     status: 'Academic',
     logo: 'pothole-detection.png',
-    overview: 'Computer vision model designed to detect and map road potholes in real-time to aid autonomous vehicle navigation and city infrastructure planning.',
-    features: ['Real-time object detection', 'Geotagging integration', 'High-accuracy YOLOv8 model'],
-    tech: ['Python', 'YOLOv8', 'OpenCV'],
-    repo: 'https://github.com/somiya-namdeo/Pothole-Detection-Depth-Analysis', live: null,
+    overview: 'Deep learning system that detects potholes, estimates depth, categorizes severity, and generates visual road damage analysis reports.',
+    fullOverview: 'Pothole Detection and Depth Analysis is a deep learning-powered road damage assessment system that combines transformer-based object detection with depth estimation to identify potholes and evaluate their severity. Beyond simple detection, the platform estimates pothole depth, assigns impact ratings, and generates visual analytics to support infrastructure monitoring and maintenance planning.\n\nThe system demonstrates the integration of object detection, depth estimation, and computer vision analytics into a unified inspection pipeline.\n\nPerformance:\nPrecision: 0.801\nRecall: 0.646\nmAP@50: 0.737\nmAP@50-95: 0.440',
+    features: [
+      'RF-DETR Transformer-Based Detection',
+      'Depth Estimation using Depth Anything',
+      'Pothole Severity Classification',
+      'Impact Rating System (1–10)',
+      'Depth Heatmap Generation',
+      '3D Surface Visualization',
+      'Cross-Sectional Analysis',
+      'Batch Image Processing',
+      'Automated Road Damage Reports'
+    ],
+    tech: ['Python', 'PyTorch', 'Transformers', 'RF-DETR', 'Depth Anything', 'OpenCV', 'Matplotlib', 'Roboflow'],
+    repo: 'https://github.com/somiya-namdeo/Pothole-Detection-Depth-Analysis', 
+    live: null,
     category: 'academic'
   },
   {
@@ -98,10 +186,22 @@ const projectsDb = [
     domain: 'Reinforcement Learning',
     status: 'Academic',
     logo: 'autonomous-robot-path-tracking.png',
-    overview: 'Autonomous robot path planning algorithm utilizing reinforcement learning to navigate complex, dynamic grid environments.',
-    features: ['Q-Learning', 'SARSA', 'Dynamic obstacle avoidance'],
-    tech: ['Python', 'Reinforcement Learning', 'NumPy'],
-    repo: 'https://github.com/somiya-namdeo/Autonomous-Robot-Path-Planning-using-Q-Learning-and-SARSA', live: null,
+    overview: 'Reinforcement learning system using Q-Learning and SARSA for autonomous robotic navigation and optimal path discovery.',
+    fullOverview: 'Autonomous Robot Path Planning is a reinforcement learning project that explores intelligent robotic navigation using Q-Learning and SARSA algorithms. The system trains an agent to discover optimal paths in a grid-based environment while avoiding obstacles and maximizing cumulative rewards.\n\nThe project demonstrates how reinforcement learning enables autonomous decision-making through continuous interaction with an environment, highlighting the trade-offs between efficiency, convergence speed, and learning stability.\n\nResults:\nQ-Learning Final Steps: 14.08\nSARSA Final Steps: 21.64\nBest Efficiency: 48.19%\nHigh Stability Convergence',
+    features: [
+      'Q-Learning Navigation Agent',
+      'SARSA Navigation Agent',
+      'Grid-Based Environment Simulation',
+      'Obstacle Avoidance Learning',
+      'Reward Optimization Framework',
+      'Policy Convergence Analysis',
+      'Exploration vs Exploitation Evaluation',
+      'Reinforcement Learning Performance Comparison',
+      'Autonomous Decision-Making System'
+    ],
+    tech: ['Python', 'NumPy', 'Matplotlib', 'Reinforcement Learning', 'Q-Learning', 'SARSA'],
+    repo: 'https://github.com/somiya-namdeo/Autonomous-Robot-Path-Planning-using-Q-Learning-and-SARSA', 
+    live: null,
     category: 'academic'
   }
 ];
@@ -252,7 +352,9 @@ const Projects = () => {
 
                 <div className="panel-section">
                   <h3>Overview</h3>
-                  <p>{selectedProject.overview}</p>
+                  {(selectedProject.fullOverview || selectedProject.overview).split('\n\n').map((paragraph, i) => (
+                    <p key={i} style={{ marginBottom: i > 0 ? '1rem' : '0' }}>{paragraph}</p>
+                  ))}
                 </div>
 
                 <div className="panel-section">
