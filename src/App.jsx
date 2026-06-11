@@ -9,6 +9,7 @@ import Projects from './pages/Projects'
 import Resume from './pages/Resume'
 import Contact from './pages/Contact'
 import AcademicProfile from './pages/AcademicProfile'
+import CodingArena from './pages/CodingArena'
 import LoadingScreen from './components/LoadingScreen'
 
 function App() {
@@ -50,7 +51,7 @@ function App() {
                 <Route path="/experience-timeline" element={<PlaceholderPage title="Experience Timeline" />} />
                 <Route path="/resume-vault" element={<Resume />} />
                 <Route path="/contact-console" element={<Contact />} />
-                <Route path="/coding-arena" element={<PlaceholderPage title="Coding Arena" />} />
+                <Route path="/coding-arena" element={<CodingArena />} />
                 <Route path="/github-hub" element={<PlaceholderPage title="GitHub Hub" />} />
 
                 {/* Legacy Redirects */}
