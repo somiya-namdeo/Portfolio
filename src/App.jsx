@@ -10,6 +10,7 @@ import Resume from './pages/Resume'
 import Contact from './pages/Contact'
 import AcademicProfile from './pages/AcademicProfile'
 import CodingArena from './pages/CodingArena'
+import NeuralOS from './pages/NeuralOS'
 import LoadingScreen from './components/LoadingScreen'
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
                 {/* Core New Routes */}
                 <Route path="/recruiter-snapshot" element={<PlaceholderPage title="Recruiter Snapshot" />} />
                 <Route path="/academic-profile" element={<AcademicProfile />} />
-                <Route path="/skill-matrix" element={<PlaceholderPage title="Skill Matrix" />} />
+                <Route path="/skill-matrix" element={<NeuralOS />} />
                 <Route path="/projects-universe" element={<Projects />} />
                 <Route path="/experience-timeline" element={<PlaceholderPage title="Experience Timeline" />} />
                 <Route path="/resume-vault" element={<Resume />} />
