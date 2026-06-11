@@ -42,7 +42,7 @@ const osModules = [
     id: 'MOD_06',
     name: 'Tools & Workflow',
     desc: 'Development workflow tools used for experimentation, coding, collaboration, debugging, API testing, and project delivery.',
-    techs: ['Git', 'GitHub', 'VS Code', 'Jupyter Notebook', 'Google Colab', 'Kaggle', 'Postman'],
+    techs: ['Git', 'GitHub', 'VS Code', 'Jupyter Notebook', 'Google Colab', 'Kaggle'],
     caps: ['Version Control', 'Collaborative Development', 'Experimentation', 'Debugging', 'API Testing', 'Model Prototyping']
   }
 ];
