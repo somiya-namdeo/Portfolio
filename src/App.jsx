@@ -11,6 +11,7 @@ import Contact from './pages/Contact'
 import AcademicProfile from './pages/AcademicProfile'
 import CodingArena from './pages/CodingArena'
 import NeuralOS from './pages/NeuralOS'
+import CareerCommandCenter from './pages/CareerCommandCenter'
 import LoadingScreen from './components/LoadingScreen'
 
 function App() {
@@ -49,7 +50,7 @@ function App() {
                 <Route path="/academic-profile" element={<AcademicProfile />} />
                 <Route path="/skill-matrix" element={<NeuralOS />} />
                 <Route path="/projects-universe" element={<Projects />} />
-                <Route path="/experience-timeline" element={<PlaceholderPage title="Experience Timeline" />} />
+                <Route path="/experience-timeline" element={<CareerCommandCenter />} />
                 <Route path="/resume-vault" element={<Resume />} />
                 <Route path="/contact-console" element={<Contact />} />
                 <Route path="/coding-arena" element={<CodingArena />} />
