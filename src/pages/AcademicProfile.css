@@ -1,16 +1,39 @@
 .academic-page {
   min-height: 100vh;
-  padding: 100px 2rem 4rem;
+  padding: 10px 2rem 4rem; /* Reduced top spacing by 40% (was 40px, now 10px + Navbar offset) */
   position: relative;
   overflow-x: hidden;
   background: var(--bg-color);
 }
 
-.academic-content {
+.academic-container {
   max-width: 1000px; /* Constrained for better readability */
   margin: 0 auto;
   position: relative;
   z-index: 2;
+}
+
+/* --- HERO SECTION --- */
+.academic-hero {
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.hero-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  max-width: 900px;
+  margin: 0;
 }
 
 /* Base Glass Card */
@@ -30,6 +53,10 @@
 }
 
 /* Headings */
+.section-block {
+  margin-bottom: 48px;
+}
+
 .section-heading {
   display: flex;
   align-items: center;
@@ -51,12 +78,13 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
+  width: 100%;
 }
 
 .snapshot-card {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
   padding: 1.5rem;
   border-left: 3px solid #3b82f6;
 }
@@ -75,10 +103,12 @@
 .snap-data {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .snap-value {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: var(--text-primary);
   display: flex;
@@ -87,13 +117,13 @@
 }
 
 .snap-suffix {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-secondary);
 }
 
 .snap-label {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -118,7 +148,7 @@
 
 .timeline-item {
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .timeline-item:last-child {
@@ -157,6 +187,28 @@
   box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.05);
 }
 
+.education-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.education-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.education-right {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
 .card-header-flex {
   display: flex;
   justify-content: space-between;
@@ -165,7 +217,7 @@
 }
 
 .institution {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: var(--text-primary);
   font-weight: 700;
 }
@@ -181,6 +233,8 @@
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
+  width: fit-content;
+  white-space: nowrap;
 }
 
 .location {
@@ -189,38 +243,40 @@
   gap: 6px;
   color: var(--text-secondary);
   font-size: 0.95rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .degree {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
 }
 
 .score-box {
+  width: 120px;
   background: rgba(0, 0, 0, 0.2);
-  padding: 12px 20px;
+  padding: 10px 16px;
   border-radius: 12px;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
+  align-items: flex-end;
   border: 1px solid rgba(255,255,255,0.05);
 }
 
 .score-label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .score-value {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #60a5fa;
 }
 
-/* --- SECTION 3: SPECIALIZATION --- */
+/* --- SECTION 2: SPECIALIZATION --- */
 .premium-highlight-card {
   position: relative;
   overflow: hidden;
@@ -251,33 +307,12 @@
   background: #a855f7;
 }
 
-.highlight-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 1rem;
-}
-
-.highlight-icon {
-  color: #c084fc;
-}
-
-.premium-highlight-card h2 {
-  font-size: 1.8rem;
-  color: var(--text-primary);
-  font-weight: 800;
-}
-
-.premium-highlight-card .desc {
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
-
-/* --- SECTION 2: COURSEWORK --- */
+/* --- SECTION 3: COURSEWORK --- */
 .coursework-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  justify-content: center;
 }
 
 .course-chip {
@@ -353,7 +388,7 @@
   line-height: 1.4;
 }
 
-.cert-text p {
+.cert-text p.provider {
   font-size: 0.9rem;
   color: var(--text-secondary);
 }
@@ -363,19 +398,30 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 10px;
   border-radius: 8px;
-  color: var(--text-primary);
   font-size: 0.9rem;
   text-decoration: none;
   transition: all 0.3s ease;
+  width: 100%;
 }
 
-.cert-link-btn:hover {
+.cert-link-btn.active {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.cert-link-btn.active:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cert-link-btn.pending {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  cursor: default;
 }
 
 /* --- RESPONSIVE --- */
@@ -387,7 +433,7 @@
 
 @media (max-width: 768px) {
   .academic-page {
-    padding: 80px 1rem 2rem;
+    padding: 40px 1rem 2rem;
   }
   
   .snapshot-grid {
@@ -404,7 +450,17 @@
   }
   
   .institution {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+  
+  .education-card {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .education-right {
+    width: 100%;
+    align-items: flex-end;
   }
   
   .timeline-container {
@@ -428,36 +484,110 @@
 }
 
 /* Light Mode Support */
-.light .glass-card {
-  background: rgba(255, 255, 255, 0.8);
-  border-color: rgba(0, 0, 0, 0.1);
+.light .academic-page {
+  background: #f8fafc;
 }
-.light .premium-highlight-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(233, 213, 255, 0.4) 100%);
-  border-color: rgba(168, 85, 247, 0.3);
+.light .glass-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.light .glass-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+.light .section-heading {
+  color: #0f172a;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline */
+.light .timeline-line {
+  background: linear-gradient(to bottom, #3b82f6 0%, #8b5cf6 50%, rgba(0,0,0,0.1) 100%);
+}
+.light .timeline-node {
+  background: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+.light .node-core {
+  background: #2563eb;
+}
+.light .timeline-card.highlight-border {
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.08);
 }
 .light .institution, .light .degree, .light .snap-value, .light .cert-text h3 {
   color: #0f172a;
 }
-.light .score-box {
-  background: rgba(0, 0, 0, 0.05);
-  border-color: rgba(0,0,0,0.1);
-}
-.light .standard-chip {
-  background: rgba(0,0,0,0.05);
-  border-color: rgba(0,0,0,0.1);
+.light .location {
   color: #475569;
 }
+.light .duration.badge-glow {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+
+/* Score / CGPA Box */
+.light .score-box {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+.light .score-label {
+  color: #64748b;
+  font-weight: 600;
+}
+.light .score-value {
+  color: #2563eb;
+}
+
+/* Coursework Chips */
+.light .standard-chip {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #1f2937;
+}
 .light .standard-chip:hover {
-  background: rgba(0,0,0,0.1);
+  background: #f1f5f9;
+  border-color: #94a3b8;
   color: #0f172a;
 }
-.light .cert-link-btn {
-  background: rgba(0,0,0,0.05);
-  border-color: rgba(0,0,0,0.1);
+.light .ai-chip {
+  background: #f3e8ff;
+  border-color: #d8b4fe;
+  color: #6d28d9;
+  box-shadow: none;
+}
+.light .ai-chip:hover {
+  background: #f3e8ff;
+  border-color: #c084fc;
+  color: #5b21b6;
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.15);
+}
+.light .ai-icon {
+  color: #7c3aed;
+}
+
+/* Certifications */
+.light .cert-text p.provider {
+  color: #475569;
+}
+.light .cert-text p.date {
+  color: #64748b;
+}
+.light .cert-link-btn.active {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #1e293b;
+  font-weight: 500;
+}
+.light .cert-link-btn.active:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
   color: #0f172a;
 }
-.light .cert-link-btn:hover {
-  background: rgba(0,0,0,0.1);
-  border-color: rgba(0,0,0,0.2);
+.light .cert-link-btn.pending {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  color: #94a3b8;
 }
